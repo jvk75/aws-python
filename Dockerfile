@@ -8,7 +8,7 @@ LABEL Description="Python 3.7 and AWS CLI+CDK with some common utilities and lib
 # Install AWS CLI (and some)
 RUN pip3 install awscli --upgrade \
 && apt-get update \
-&& apt-get install -y zip git
+&& apt-get install -y zip git jq
 
 #Install common libraries
 RUN pip3 install -U boto3 requests \
