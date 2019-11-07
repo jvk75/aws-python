@@ -1,7 +1,7 @@
 FROM node:latest
 RUN npm install -g aws-cdk
 
-FROM python:latest
+FROM python:3.7
 MAINTAINER Jari Kalinainen <jari@klubitii.com>
 LABEL Description="Python 3.7 and AWS CLI+CDK with some common utilities and libraries. To be used as gitalab CI/CD base image."
 
