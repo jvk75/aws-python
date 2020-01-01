@@ -1,15 +1,15 @@
 FROM node:latest
-RUN npm install -g aws-cdk
+MAINTAINER Jari Kalinainen <jari@loitsut.com>
+LABEL Description="Node, Python 3.7 and AWS CLI+CDK with some common utilities and libraries. To be used as gitalab CI/CD base image."
 
-FROM python:3.7
-MAINTAINER Jari Kalinainen <jari@klubitii.com>
-LABEL Description="Python 3.7 and AWS CLI+CDK with some common utilities and libraries. To be used as gitalab CI/CD base image."
-
-# Install AWS CLI (and some)
-RUN pip3 install awscli --upgrade \
-&& apt-get update \
-&& apt-get install -y zip git jq
-
-#Install common libraries
-RUN pip3 install -U boto3 requests \
-&& pip install -U aws-cdk.core
+# Install
+RUN add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update \
+    && apt-get install -y \
+        python3.7 python3-pip python3-setuptools \
+        groff zip git jq \
+        less \
+    && pip3 install --upgrade pip \
+    && pip3 install -U awscli boto3 requests aws-cdk.core \
+    && npm install -g aws-cdk \
+    && apt-get clean
