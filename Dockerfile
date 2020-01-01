@@ -6,4 +6,5 @@ LABEL Description="Node, Python 3.7 and AWS CLI+CDK with some common utilities a
 RUN npm install -g aws-cdk \
     && apk add python3 groff zip git jq \
     && pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install --no-cache-dir --upgrade awscli boto3 requests aws-cdk.core
+    && pip3 install --no-cache-dir --upgrade awscli boto3 requests aws-cdk.core \
+    && alias python=python3
