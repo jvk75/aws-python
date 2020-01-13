@@ -5,6 +5,6 @@ LABEL Description="Node, Python 3.7 and AWS CLI+CDK with some common utilities a
 # Install
 RUN npm install -g aws-cdk \
     && npm install -g node-gyp \
-    && apk add python3 python groff zip git jq make g++ openssl-dev \
+    && apk add python3 python groff zip git jq make g++ openssl-dev libressl-dev libffi\
     && pip3 install --no-cache-dir --upgrade pip \
     && pip3 install --no-cache-dir --upgrade awscli boto3 requests aws-cdk.core 
